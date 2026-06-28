@@ -1,0 +1,44 @@
+---
+import '../styles/global.css';
+
+interface Props {
+  title?: string;
+  description?: string;
+}
+
+const { 
+  title = "OFF WAY | Streetwear, Caps & Accessories", 
+  description = "OFF WAY online store - Premium local streetwear, graphic caps, and bold accessories. Replicating raw street culture." 
+} = Astro.props;
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" type="image/jpeg" href="/images/logo.jpg" />
+    <meta name="generator" content={Astro.generator} />
+    <title>{title}</title>
+    <meta name="description" content={description} />
+    
+    <!-- Google Fonts: Syne for Headings, Plus Jakarta Sans for Body -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700&family=Syne:wght@700;800&display=swap" rel="stylesheet" />
+    
+    <!-- Snipcart CSS Preconnect & Styles -->
+    <link rel="preconnect" href="https://app.snipcart.com" />
+    <link rel="preconnect" href="https://cdn.snipcart.com" />
+    <link rel="stylesheet" href="https://cdn.snipcart.com/themes/v3.0.31/default/snipcart.css" />
+  </head>
+  <body class="bg-offway-black text-offway-white antialiased min-h-screen flex flex-col selection:bg-offway-blue selection:text-white">
+    <slot />
+    
+    <!-- Snipcart Shopping Cart HTML Setup (Using a public test API key for localhost testing) -->
+    <div id="snipcart" data-api-key="Y2QyOTYwYTgtOTUxZi00ZmQzLTllYjQtNDRlMWJjNTRhODdmNjM4NTUzOTg5MDM1MTY3NjY4" data-config-modal-style="side" hidden></div>
+    
+    <!-- Snipcart JavaScript SDK -->
+    <script async src="https://cdn.snipcart.com/themes/v3.0.31/default/snipcart.js"></script>
+  </body>
+</html>

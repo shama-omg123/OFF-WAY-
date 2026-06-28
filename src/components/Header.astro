@@ -1,0 +1,92 @@
+---
+---
+<header class="sticky top-0 z-50 w-full bg-offway-black/80 backdrop-blur-md border-b border-white/10 transition-all duration-300">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
+    
+    <!-- Left Menu: Desktop Links -->
+    <nav class="hidden md:flex items-center space-x-8 text-sm font-semibold tracking-widest uppercase">
+      <a href="#shop" class="text-white hover:text-offway-blue transition-colors duration-200">Shop All</a>
+      <a href="#caps" class="text-white/60 hover:text-offway-blue transition-colors duration-200">Caps</a>
+      <a href="#streetwear" class="text-white/60 hover:text-offway-blue transition-colors duration-200">Streetwear</a>
+      <a href="#accessories" class="text-white/60 hover:text-offway-blue transition-colors duration-200">Accessories</a>
+    </nav>
+
+    <!-- Mobile Menu Toggle Button (Left aligned for mobile) -->
+    <div class="flex md:hidden">
+      <button id="mobile-menu-btn" class="text-white hover:text-offway-blue focus:outline-none" aria-label="Toggle menu">
+        <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path id="menu-icon-path" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+        </svg>
+      </button>
+    </div>
+
+    <!-- Center: Brand Logo -->
+    <div class="absolute left-1/2 transform -translate-x-1/2 flex items-center">
+      <a href="/" class="flex items-center space-x-2 group">
+        <img 
+          src="/images/logo.jpg" 
+          alt="OFF WAY LOGO" 
+          class="w-14 h-14 rounded-full border-2 border-offway-blue object-cover shadow-[0_0_15px_rgba(0,71,205,0.4)] group-hover:scale-105 transition-transform duration-300"
+        />
+        <span class="font-heading font-extrabold text-2xl tracking-wider text-white hidden sm:inline-block group-hover:text-offway-blue transition-colors duration-300">
+          OFF <span class="text-offway-blue">WAY</span>
+        </span>
+      </a>
+    </div>
+
+    <!-- Right: Shopping Bag -->
+    <div class="flex items-center space-x-4">
+      <button 
+        class="snipcart-checkout relative p-2 text-white hover:text-offway-blue transition-colors duration-200 focus:outline-none flex items-center"
+        aria-label="View Shopping Bag"
+      >
+        <!-- Shopping Bag Icon -->
+        <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z" />
+        </svg>
+        <!-- Item Count Badge -->
+        <span class="snipcart-items-count absolute -top-1 -right-1 bg-offway-blue text-white text-[10px] font-bold w-5 h-5 rounded-full flex items-center justify-center border border-offway-black shadow-lg">0</span>
+        <!-- Total Price (Optional, styled sleekly) -->
+        <span class="snipcart-total-price hidden lg:inline-block ml-2 text-xs font-mono font-bold text-white/80">₹0.00</span>
+      </button>
+    </div>
+
+  </div>
+
+  <!-- Mobile Dropdown Navigation -->
+  <div id="mobile-menu" class="hidden md:hidden border-t border-white/5 bg-offway-black px-4 py-6 space-y-4 shadow-2xl transition-all duration-300">
+    <a href="#shop" class="mobile-link block text-base font-semibold tracking-wider uppercase text-white hover:text-offway-blue">Shop All</a>
+    <a href="#caps" class="mobile-link block text-base font-semibold tracking-wider uppercase text-white/60 hover:text-offway-blue">Caps</a>
+    <a href="#streetwear" class="mobile-link block text-base font-semibold tracking-wider uppercase text-white/60 hover:text-offway-blue">Streetwear</a>
+    <a href="#accessories" class="mobile-link block text-base font-semibold tracking-wider uppercase text-white/60 hover:text-offway-blue">Accessories</a>
+  </div>
+</header>
+
+<script>
+  // Interactive Mobile Menu Logic
+  const menuBtn = document.getElementById('mobile-menu-btn');
+  const mobileMenu = document.getElementById('mobile-menu');
+  const iconPath = document.getElementById('menu-icon-path');
+
+  if (menuBtn && mobileMenu && iconPath) {
+    menuBtn.addEventListener('click', () => {
+      const isHidden = mobileMenu.classList.contains('hidden');
+      if (isHidden) {
+        mobileMenu.classList.remove('hidden');
+        iconPath.setAttribute('d', 'M6 18L18 6M6 6l12 12');
+      } else {
+        mobileMenu.classList.add('hidden');
+        iconPath.setAttribute('d', 'M4 6h16M4 12h16M4 18h16');
+      }
+    });
+
+    // Close menu when clicking links
+    const mobileLinks = document.querySelectorAll('.mobile-link');
+    mobileLinks.forEach(link => {
+      link.addEventListener('click', () => {
+        mobileMenu.classList.add('hidden');
+        iconPath.setAttribute('d', 'M4 6h16M4 12h16M4 18h16');
+      });
+    });
+  }
+</script>

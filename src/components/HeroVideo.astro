@@ -1,0 +1,87 @@
+---
+---
+<div class="relative h-[85vh] w-full overflow-hidden bg-offway-black flex items-center justify-center">
+  <!-- Immersive Background Image / Overlay (Urban aesthetic) -->
+  <div class="absolute inset-0 z-0">
+    <div class="absolute inset-0 bg-gradient-to-t from-offway-black via-offway-black/50 to-transparent z-10"></div>
+    <div class="absolute inset-0 bg-gradient-to-r from-offway-black via-transparent to-offway-black z-10"></div>
+    <!-- Visual background styling with absolute sizing -->
+    <div class="absolute inset-0 bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-offway-blue/20 via-transparent to-transparent z-10 animate-pulse duration-[8000ms]"></div>
+    
+    <!-- Heavy stylized backdrop grid pattern -->
+    <div class="absolute inset-0 opacity-10 bg-[linear-gradient(to_right,#808080_1px,transparent_1px),linear-gradient(to_bottom,#808080_1px,transparent_1px)] bg-[size:40px_40px] z-10"></div>
+    
+    <!-- Background image representing local urban landscape -->
+    <img 
+      src="/images/product-hoodie.png" 
+      alt="OFF WAY Streetwear Collection" 
+      class="w-full h-full object-cover object-center opacity-40 scale-105 hover:scale-100 transition-transform duration-[12000ms] ease-out select-none"
+    />
+  </div>
+
+  <!-- Hero Content Center Container -->
+  <div class="relative z-20 text-center max-w-4xl px-4 sm:px-6 flex flex-col items-center">
+    
+    <!-- Badge -->
+    <span class="inline-flex items-center px-4 py-1.5 rounded-full text-xs font-bold font-mono tracking-widest uppercase bg-offway-blue/20 text-offway-blue border border-offway-blue/30 shadow-[0_0_15px_rgba(0,71,205,0.2)] mb-6 animate-bounce">
+      LIMITED DROP 01 / NOW LIVE
+    </span>
+
+    <!-- Big Bold Title with Star Flare Vibe -->
+    <h1 class="font-heading font-extrabold text-5xl sm:text-7xl md:text-8xl tracking-tight uppercase leading-[0.95] text-white">
+      BREAK THE <br class="sm:hidden" />
+      <span class="text-transparent bg-clip-text bg-gradient-to-r from-white via-offway-blue to-white bg-[size:200%_auto] animate-shimmer">
+        OFF WAY
+      </span>
+    </h1>
+
+    <p class="mt-6 text-base sm:text-lg md:text-xl text-white/60 font-medium tracking-wide max-w-2xl">
+      India's newest underground streetwear label. Engineered for self-expression, designed in cobalt and matte black.
+    </p>
+
+    <!-- CTAs -->
+    <div class="mt-10 flex flex-col sm:flex-row items-center justify-center gap-4 w-full sm:w-auto">
+      <a 
+        href="#shop" 
+        class="w-full sm:w-auto bg-offway-blue text-white font-heading font-bold uppercase px-8 py-4 tracking-widest text-sm transition-all hover:bg-white hover:text-offway-black border-2 border-offway-blue hover:border-white shadow-[0_0_20px_rgba(0,71,205,0.4)] hover:shadow-none"
+      >
+        EXPLORE DROP
+      </a>
+      <a 
+        href="#brand-philosophy" 
+        class="w-full sm:w-auto bg-transparent text-white font-heading font-bold uppercase px-8 py-4 tracking-widest text-sm transition-all hover:bg-white/5 border-2 border-white/20"
+      >
+        OUR MANIFESTO
+      </a>
+    </div>
+
+  </div>
+
+  <!-- Scroll Down indicator -->
+  <div class="absolute bottom-8 left-1/2 transform -translate-x-1/2 z-20 flex flex-col items-center">
+    <a href="#shop" class="text-white/40 hover:text-white transition-colors duration-200 flex flex-col items-center">
+      <span class="text-[10px] font-mono tracking-widest uppercase mb-2">SCROLL DOWN</span>
+      <svg class="h-5 w-5 animate-bounce" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7m0 0l-7-7m7 7V3" />
+      </svg>
+    </a>
+  </div>
+</div>
+
+<style>
+  @keyframes shimmer {
+    0% {
+      background-position: 0% center;
+    }
+    50% {
+      background-position: 100% center;
+    }
+    100% {
+      background-position: 0% center;
+    }
+  }
+  .animate-shimmer {
+    background-size: 200% auto;
+    animation: shimmer 6s linear infinite;
+  }
+</style>

@@ -1,0 +1,195 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Header from '../components/Header.astro';
+import HeroVideo from '../components/HeroVideo.astro';
+import ProductCard from '../components/ProductCard.astro';
+import Footer from '../components/Footer.astro';
+
+// Hardcoded product database for high-performance static rendering
+const products = [
+  {
+    id: "ow-01",
+    title: "OFF WAY COBALT SNAPBACK",
+    price: 1299,
+    category: "caps",
+    imageSrc: "/images/product-cap.png",
+    isNew: true,
+    isLimited: false,
+    sizes: { S: false, M: true, L: true, XL: true }
+  },
+  {
+    id: "ow-02",
+    title: "RAW OVERSIZED GRAPHIC TEE",
+    price: 1899,
+    category: "streetwear",
+    imageSrc: "/images/product-tee.png",
+    isNew: false,
+    isLimited: true,
+    sizes: { S: true, M: true, L: true, XL: false }
+  },
+  {
+    id: "ow-03",
+    title: "STREET HEAVYWEIGHT HOODIE",
+    price: 3499,
+    category: "streetwear",
+    imageSrc: "/images/product-hoodie.png",
+    isNew: true,
+    isLimited: true,
+    sizes: { S: true, M: true, L: true, XL: true }
+  },
+  {
+    id: "ow-04",
+    title: "TACTICAL CROSSBODY SLING BAG",
+    price: 2199,
+    category: "accessories",
+    imageSrc: "/images/product-bag.png",
+    isNew: false,
+    isLimited: true,
+    sizes: { "ONE SIZE": true }
+  }
+];
+---
+
+<BaseLayout>
+  <Header />
+  
+  <main class="flex-grow">
+    <!-- Hero Showcase -->
+    <HeroVideo />
+
+    <!-- Section: Manifesto / Brand philosophy -->
+    <section id="brand-philosophy" class="bg-offway-black py-24 border-b border-white/5 relative overflow-hidden">
+      <div class="absolute -right-20 top-0 text-[10vw] font-heading font-extrabold text-white/5 uppercase select-none pointer-events-none tracking-tighter">
+        DISRUPT
+      </div>
+      <div class="max-w-4xl mx-auto px-4 text-center relative z-10">
+        <span class="text-offway-blue text-xs font-mono font-bold tracking-widest uppercase block mb-4">THE MANIFESTO</span>
+        <h2 class="font-heading font-bold text-3xl sm:text-4xl md:text-5xl uppercase tracking-tight text-white leading-tight">
+          WE ARE NOT FOR EVERYONE. <br />
+          ONLY FOR THOSE WHO GO <span class="text-offway-blue">OFF WAY</span>.
+        </h2>
+        <p class="mt-6 text-sm sm:text-base text-white/60 leading-relaxed max-w-2xl mx-auto font-medium">
+          Streetwear isn't just about what you wear; it's about the noise you make in silence. We build premium capsule drops designed in low quantities to protect exclusivity. Once it's gone, it's gone forever.
+        </p>
+        <div class="mt-8 flex justify-center space-x-6 text-xs font-mono font-bold text-white/40 uppercase">
+          <span>⚡ MADE IN INDIA</span>
+          <span>•</span>
+          <span>⚡ LIMITED RUNS</span>
+          <span>•</span>
+          <span>⚡ NO RESTOCKS</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- Section: Product Shop Grid -->
+    <section id="shop" class="bg-offway-black py-20 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
+      
+      <!-- Section Title & Filters -->
+      <div class="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-12 border-b border-white/5 pb-8">
+        <div>
+          <span class="text-offway-blue text-xs font-mono font-bold tracking-widest uppercase">CATALOG</span>
+          <h2 class="font-heading font-extrabold text-3xl sm:text-4xl uppercase text-white mt-1">
+            DROP ONE COLLECTION
+          </h2>
+        </div>
+        
+        <!-- Filter Tabs -->
+        <div class="flex flex-wrap gap-2 text-xs font-mono" data-filters-container>
+          <button 
+            data-filter="all" 
+            class="px-5 py-2.5 border border-offway-blue bg-offway-blue text-white font-bold tracking-widest uppercase transition-all duration-200 cursor-pointer shadow-[0_0_10px_rgba(0,71,205,0.3)]"
+          >
+            All Products
+          </button>
+          <button 
+            data-filter="caps" 
+            class="px-5 py-2.5 border border-white/10 hover:border-white text-white/60 hover:text-white font-bold tracking-widest uppercase transition-all duration-200 cursor-pointer"
+          >
+            Caps
+          </button>
+          <button 
+            data-filter="streetwear" 
+            class="px-5 py-2.5 border border-white/10 hover:border-white text-white/60 hover:text-white font-bold tracking-widest uppercase transition-all duration-200 cursor-pointer"
+          >
+            Streetwear
+          </button>
+          <button 
+            data-filter="accessories" 
+            class="px-5 py-2.5 border border-white/10 hover:border-white text-white/60 hover:text-white font-bold tracking-widest uppercase transition-all duration-200 cursor-pointer"
+          >
+            Accessories
+          </button>
+        </div>
+      </div>
+
+      <!-- Shop Grid -->
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6" id="products-grid">
+        {products.map(product => (
+          <div data-product-category={product.category} class="transition-all duration-500 ease-out transform">
+            <ProductCard 
+              id={product.id}
+              title={product.title}
+              price={product.price}
+              category={product.category}
+              imageSrc={product.imageSrc}
+              isNew={product.isNew}
+              isLimited={product.isLimited}
+              sizes={product.sizes}
+            />
+          </div>
+        ))}
+      </div>
+
+    </section>
+  </main>
+
+  <Footer />
+</BaseLayout>
+
+<script>
+  // Interactive client-side filtering script
+  document.addEventListener('DOMContentLoaded', () => {
+    const filterButtons = document.querySelectorAll('[data-filter]');
+    const productsGrid = document.getElementById('products-grid');
+
+    if (filterButtons.length > 0 && productsGrid) {
+      const productItems = productsGrid.children;
+
+      filterButtons.forEach(button => {
+        button.addEventListener('click', (e) => {
+          const clickedBtn = e.currentTarget as HTMLButtonElement;
+          const filterValue = clickedBtn.getAttribute('data-filter');
+
+          // Toggle button styles
+          filterButtons.forEach(btn => {
+            btn.classList.remove('border-offway-blue', 'bg-offway-blue', 'text-white', 'shadow-[0_0_10px_rgba(0,71,205,0.3)]');
+            btn.classList.add('border-white/10', 'text-white/60');
+          });
+          clickedBtn.classList.remove('border-white/10', 'text-white/60');
+          clickedBtn.classList.add('border-offway-blue', 'bg-offway-blue', 'text-white', 'shadow-[0_0_10px_rgba(0,71,205,0.3)]');
+
+          // Filter product items
+          Array.from(productItems).forEach(item => {
+            const el = item as HTMLElement;
+            const category = el.getAttribute('data-product-category');
+
+            if (filterValue === 'all' || category === filterValue) {
+              el.style.opacity = '0';
+              el.style.display = 'block';
+              setTimeout(() => {
+                el.style.opacity = '1';
+                el.style.transform = 'scale(1)';
+              }, 50);
+            } else {
+              el.style.opacity = '0';
+              el.style.transform = 'scale(0.95)';
+              setTimeout(() => {
+                el.style.display = 'none';
+              }, 300);
+            }
+          });
+        });
+      });
+    }
+  });
+</script>
