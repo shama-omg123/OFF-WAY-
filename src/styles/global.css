@@ -2,12 +2,30 @@
 
 @theme {
   --color-offway-blue: #0047CD;
-  --color-offway-black: #0D0D0D;
-  --color-offway-card: #161619;
-  --color-offway-white: #FFFFFF;
+  --color-offway-black: var(--offway-black);
+  --color-offway-card: var(--offway-card);
+  --color-offway-white: var(--offway-white);
+
+  /* Map default tailwind white/black to our dynamic variables */
+  --color-white: var(--offway-white);
+  --color-black: var(--offway-black);
 
   --font-sans: "Plus Jakarta Sans", ui-sans-serif, system-ui, sans-serif;
   --font-heading: "Syne", ui-sans-serif, system-ui, sans-serif;
+}
+
+@layer base {
+  :root {
+    --offway-black: #0D0D0D;
+    --offway-white: #FFFFFF;
+    --offway-card: #161619;
+  }
+
+  html.light {
+    --offway-black: #F8F9FA;
+    --offway-white: #121212;
+    --offway-card: #FFFFFF;
+  }
 }
 
 /* Custom scrollbar and base style updates */
