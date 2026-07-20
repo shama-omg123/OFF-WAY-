@@ -46,6 +46,61 @@ const products = [
     isNew: false,
     isLimited: true,
     sizes: { "ONE SIZE": true }
+  },
+  {
+    id: "ow-05",
+    title: "BLUE MESSENGER",
+    price: 649,
+    category: "bags",
+    imageSrc: "/images/bags/blue-messenger.png",
+    isNew: true,
+    isLimited: false,
+    description: "Length 34 cm Height 26 cm",
+    sizes: { "ONE SIZE": true }
+  },
+  {
+    id: "ow-06",
+    title: "BLACK MESSENGER",
+    price: 599,
+    category: "bags",
+    imageSrc: "/images/bags/black-messenger.png",
+    isNew: false,
+    isLimited: true,
+    description: "Length 35 cm Height 26 cm",
+    sizes: { "ONE SIZE": true }
+  },
+  {
+    id: "ow-07",
+    title: "MESSENGER 899",
+    price: 899,
+    category: "bags",
+    imageSrc: "/images/bags/messenger-899.png",
+    isNew: true,
+    isLimited: true,
+    description: "Premium tactical messenger",
+    sizes: { "ONE SIZE": true }
+  },
+  {
+    id: "ow-08",
+    title: "MESSENGER WHITE",
+    price: 649,
+    category: "bags",
+    imageSrc: "/images/bags/messenger-white.png",
+    isNew: true,
+    isLimited: false,
+    description: "Imported messenger bag white",
+    sizes: { "ONE SIZE": true }
+  },
+  {
+    id: "ow-09",
+    title: "MESSENGER SKY BLUE",
+    price: 649,
+    category: "bags",
+    imageSrc: "/images/bags/messenger-sky-blue.png",
+    isNew: false,
+    isLimited: true,
+    description: "RARE IMPORTED MESSENGER BAG",
+    sizes: { "ONE SIZE": true }
   }
 ];
 ---
@@ -119,6 +174,12 @@ const products = [
           >
             Accessories
           </button>
+          <button 
+            data-filter="bags" 
+            class="px-5 py-2.5 border border-white/10 hover:border-white text-white/60 hover:text-white font-bold tracking-widest uppercase transition-all duration-200 cursor-pointer"
+          >
+            Bags
+          </button>
         </div>
       </div>
 
@@ -134,6 +195,7 @@ const products = [
               imageSrc={product.imageSrc}
               isNew={product.isNew}
               isLimited={product.isLimited}
+              description={product.description}
               sizes={product.sizes}
             />
           </div>
@@ -190,6 +252,36 @@ const products = [
           });
         });
       });
+
+      // Handle Hash Navigation and Filtering
+      function applyFilterFromHash() {
+        const hash = window.location.hash; // e.g. '#bags', '#caps'
+        
+        if (hash) {
+          const filterValue = hash.replace('#', '');
+          const targetFilter = filterValue === 'shop' ? 'all' : filterValue;
+          
+          const filterBtn = document.querySelector(`[data-filter="${targetFilter}"]`) as HTMLButtonElement;
+          if (filterBtn) {
+            // Trigger the filter change
+            filterBtn.click();
+            
+            // Scroll down to the shop section smoothly
+            const shopSection = document.getElementById('shop');
+            if (shopSection) {
+              setTimeout(() => {
+                shopSection.scrollIntoView({ behavior: 'smooth' });
+              }, 100);
+            }
+          }
+        }
+      }
+
+      // Run on initial page load
+      applyFilterFromHash();
+
+      // Run whenever the hash in the URL changes
+      window.addEventListener('hashchange', applyFilterFromHash);
     }
   });
 </script>

@@ -1,5 +1,6 @@
 ---
 import '../styles/global.css';
+import WhatsAppWidget from '../components/WhatsAppWidget.astro';
 
 interface Props {
   title?: string;
@@ -56,6 +57,9 @@ const {
     
     <!-- Snipcart Shopping Cart HTML Setup (Using a public test API key for localhost testing) -->
     <div id="snipcart" data-api-key="Y2QyOTYwYTgtOTUxZi00ZmQzLTllYjQtNDRlMWJjNTRhODdmNjM4NTUzOTg5MDM1MTY3NjY4" data-config-modal-style="side" hidden></div>
+    
+    <!-- WhatsApp Support Widget -->
+    <WhatsAppWidget />
     
     <!-- Snipcart JavaScript SDK -->
     <script async src="https://cdn.snipcart.com/themes/v3.0.31/default/snipcart.js"></script>
