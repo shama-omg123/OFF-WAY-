@@ -8,46 +8,6 @@ import Footer from '../components/Footer.astro';
 // Hardcoded product database for high-performance static rendering
 const products = [
   {
-    id: "ow-01",
-    title: "OFF WAY COBALT SNAPBACK",
-    price: 1299,
-    category: "caps",
-    imageSrc: "/images/product-cap.png",
-    isNew: true,
-    isLimited: false,
-    sizes: { S: false, M: true, L: true, XL: true }
-  },
-  {
-    id: "ow-02",
-    title: "RAW OVERSIZED GRAPHIC TEE",
-    price: 1899,
-    category: "streetwear",
-    imageSrc: "/images/product-tee.png",
-    isNew: false,
-    isLimited: true,
-    sizes: { S: true, M: true, L: true, XL: false }
-  },
-  {
-    id: "ow-03",
-    title: "STREET HEAVYWEIGHT HOODIE",
-    price: 3499,
-    category: "streetwear",
-    imageSrc: "/images/product-hoodie.png",
-    isNew: true,
-    isLimited: true,
-    sizes: { S: true, M: true, L: true, XL: true }
-  },
-  {
-    id: "ow-04",
-    title: "TACTICAL CROSSBODY SLING BAG",
-    price: 2199,
-    category: "accessories",
-    imageSrc: "/images/product-bag.png",
-    isNew: false,
-    isLimited: true,
-    sizes: { "ONE SIZE": true }
-  },
-  {
     id: "ow-05",
     title: "BLUE MESSENGER",
     price: 649,
@@ -101,6 +61,160 @@ const products = [
     isLimited: true,
     description: "RARE IMPORTED MESSENGER BAG",
     sizes: { "ONE SIZE": true }
+  },
+  {
+    id: "ow-10",
+    title: "IMPORTED KOREAN MESSENGER BAG",
+    price: 649,
+    category: "bags",
+    imageSrc: "/images/bags/imported-korean-blue-white.png",
+    isNew: true,
+    isLimited: true,
+    description: "Length - 35 cm, height - 25 cm, adjustable strap",
+    sizes: { "ONE SIZE": true }
+  },
+  {
+    id: "ow-11",
+    title: "SPACE BLACK LAPTOP MESSENGER",
+    price: 799,
+    category: "bags",
+    imageSrc: "/images/bags/laptop-messenger-black.png",
+    isNew: true,
+    isLimited: true,
+    description: "Tactical laptop messenger bag with padded strap",
+    sizes: { "ONE SIZE": true }
+  },
+  {
+    id: "ow-12",
+    title: "IMPORTED MESSENGER BAG - SAGE GREEN",
+    price: 799,
+    category: "bags",
+    imageSrc: "/images/bags/imported-messenger-sage-green.png",
+    isNew: true,
+    isLimited: true,
+    description: "Imported quality material",
+    sizes: { "ONE SIZE": true }
+  },
+  {
+    id: "ow-13",
+    title: "IMPORTED MESSENGER BAG - BLACK",
+    price: 649,
+    category: "bags",
+    imageSrc: "/images/bags/black-imported-messenger.png",
+    isNew: true,
+    isLimited: true,
+    description: "Length 35 cm, height 26 cm",
+    sizes: { "ONE SIZE": true }
+  },
+  {
+    id: "ow-14",
+    title: "DECATHLON HIKING PANT - NAVY BLUE",
+    price: 1199,
+    category: "pants",
+    imageSrc: "/images/pants/teal-blue-ski-hiking-pants.png",
+    isNew: true,
+    isLimited: true,
+    description: "Colour: Navy Blue | 3 Layers",
+    sizes: { S: true, M: true, L: true, XL: true }
+  },
+  {
+    id: "ow-15",
+    title: "DECATHLON CONVERTER PANT - KHAKI",
+    price: 1199,
+    category: "pants",
+    imageSrc: "/images/pants/brown-converter-pants.png",
+    isNew: true,
+    isLimited: true,
+    description: "Convertible | Colour: Green / Khaki",
+    sizes: { S: true, M: true, L: true, XL: true }
+  },
+  {
+    id: "ow-16",
+    title: "DECATHLON CONVERTER PANT - GREEN",
+    price: 1199,
+    category: "pants",
+    imageSrc: "/images/pants/green-converter-pants.png",
+    isNew: true,
+    isLimited: true,
+    description: "Detachable | Colour: Green",
+    sizes: { S: true, M: true, L: true, XL: true }
+  },
+  {
+    id: "ow-17",
+    title: "DECATHLON SNOW HIKING PANT - GREY",
+    price: 1199,
+    category: "pants",
+    imageSrc: "/images/pants/dark-grey-hiking-pants.png",
+    isNew: true,
+    isLimited: true,
+    description: "3 Layers | Water Resistant",
+    sizes: { S: true, M: true, L: true, XL: true }
+  },
+  {
+    id: "ow-18",
+    title: "DECATHLON SNOW HIKING PANT - BLACK",
+    price: 1199,
+    category: "pants",
+    imageSrc: "/images/pants/space-black-hiking-pants.png",
+    isNew: true,
+    isLimited: true,
+    description: "3 Layers | Water Resistant",
+    sizes: { S: true, M: true, L: true, XL: true }
+  },
+  {
+    id: "ow-19",
+    title: "DECATHLON HIKING PANTS - TWO TONE",
+    price: 1199,
+    category: "pants",
+    imageSrc: "/images/pants/grey--black-hiking-pants.png",
+    isNew: true,
+    isLimited: true,
+    description: "Come with 3 Layers | Water Resistant",
+    sizes: { S: true, M: true, L: true, XL: true }
+  },
+  {
+    id: "ow-20",
+    title: "DECATHLON HIKING PANT - BLACK",
+    price: 1199,
+    category: "pants",
+    imageSrc: "/images/pants/black-hiking-pants.png",
+    isNew: true,
+    isLimited: true,
+    description: "Layers: 3 | Colour: Black",
+    sizes: { S: true, M: true, L: true, XL: true }
+  },
+  {
+    id: "ow-21",
+    title: "DECATHLON HIKING PANT - WHITE",
+    price: 1199,
+    category: "pants",
+    imageSrc: "/images/pants/white-hiking-pants.png",
+    isNew: true,
+    isLimited: true,
+    description: "Layers: 3 | Adjustable Hip | Water Resistant",
+    sizes: { S: true, M: true, L: true, XL: true }
+  },
+  {
+    id: "ow-22",
+    title: "DECATHLON HIKING PANT - BROWN",
+    price: 1199,
+    category: "pants",
+    imageSrc: "/images/pants/brown-hiking-pants.png",
+    isNew: true,
+    isLimited: true,
+    description: "Tactical Hiking Pants | Multi-pocket",
+    sizes: { S: true, M: true, L: true, XL: true }
+  },
+  {
+    id: "ow-23",
+    title: "SLATE EARTH COTTON PANTS",
+    price: 699,
+    category: "pants",
+    imageSrc: "/images/pants/slate-earth-cotton-pants.png",
+    isNew: true,
+    isLimited: true,
+    description: "Slate Earth Premium Cotton Pants",
+    sizes: { S: true, M: true, L: true, XL: true }
   }
 ];
 ---
@@ -157,28 +271,16 @@ const products = [
             All Products
           </button>
           <button 
-            data-filter="caps" 
-            class="px-5 py-2.5 border border-white/10 hover:border-white text-white/60 hover:text-white font-bold tracking-widest uppercase transition-all duration-200 cursor-pointer"
-          >
-            Caps
-          </button>
-          <button 
-            data-filter="streetwear" 
-            class="px-5 py-2.5 border border-white/10 hover:border-white text-white/60 hover:text-white font-bold tracking-widest uppercase transition-all duration-200 cursor-pointer"
-          >
-            Streetwear
-          </button>
-          <button 
-            data-filter="accessories" 
-            class="px-5 py-2.5 border border-white/10 hover:border-white text-white/60 hover:text-white font-bold tracking-widest uppercase transition-all duration-200 cursor-pointer"
-          >
-            Accessories
-          </button>
-          <button 
             data-filter="bags" 
             class="px-5 py-2.5 border border-white/10 hover:border-white text-white/60 hover:text-white font-bold tracking-widest uppercase transition-all duration-200 cursor-pointer"
           >
             Bags
+          </button>
+          <button 
+            data-filter="pants" 
+            class="px-5 py-2.5 border border-white/10 hover:border-white text-white/60 hover:text-white font-bold tracking-widest uppercase transition-all duration-200 cursor-pointer"
+          >
+            Pants
           </button>
         </div>
       </div>
@@ -186,7 +288,7 @@ const products = [
       <!-- Shop Grid -->
       <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6" id="products-grid">
         {products.map(product => (
-          <div data-product-category={product.category} class="transition-all duration-500 ease-out transform">
+          <div data-product-category={product.category} class="transition-all duration-500 ease-out transform h-full flex flex-col">
             <ProductCard 
               id={product.id}
               title={product.title}

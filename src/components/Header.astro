@@ -6,10 +6,8 @@
     <!-- Left Menu: Desktop Links -->
     <nav class="hidden lg:flex items-center space-x-4 xl:space-x-6 text-xs font-semibold tracking-widest uppercase">
       <a href="/#shop" class="text-white hover:text-offway-blue transition-colors duration-200">Shop All</a>
-      <a href="/#caps" class="text-white/60 hover:text-offway-blue transition-colors duration-200">Caps</a>
-      <a href="/#streetwear" class="text-white/60 hover:text-offway-blue transition-colors duration-200">Streetwear</a>
-      <a href="/#accessories" class="text-white/60 hover:text-offway-blue transition-colors duration-200">Accessories</a>
       <a href="/#bags" class="text-white/60 hover:text-offway-blue transition-colors duration-200">Bags</a>
+      <a href="/#pants" class="text-white/60 hover:text-offway-blue transition-colors duration-200">Pants</a>
     </nav>
 
     <!-- Mobile Menu Toggle Button (Left aligned for mobile) -->
@@ -50,7 +48,10 @@
       </button>
 
       <button 
-        class="snipcart-checkout relative p-2 text-white hover:text-offway-blue transition-colors duration-200 focus:outline-none flex items-center"
+        id="open-cart-btn"
+        type="button"
+        onclick="if(window.OffwayCart) window.OffwayCart.openDrawer()"
+        class="relative p-2 text-white hover:text-offway-blue transition-colors duration-200 focus:outline-none flex items-center cursor-pointer"
         aria-label="View Shopping Bag"
       >
         <!-- Shopping Bag Icon -->
@@ -69,10 +70,8 @@
   <!-- Mobile Dropdown Navigation -->
   <div id="mobile-menu" class="hidden lg:hidden border-t border-white/5 bg-offway-black px-4 py-6 space-y-4 shadow-2xl transition-all duration-300">
     <a href="/#shop" class="mobile-link block text-base font-semibold tracking-wider uppercase text-white hover:text-offway-blue">Shop All</a>
-    <a href="/#caps" class="mobile-link block text-base font-semibold tracking-wider uppercase text-white/60 hover:text-offway-blue">Caps</a>
-    <a href="/#streetwear" class="mobile-link block text-base font-semibold tracking-wider uppercase text-white/60 hover:text-offway-blue">Streetwear</a>
-    <a href="/#accessories" class="mobile-link block text-base font-semibold tracking-wider uppercase text-white/60 hover:text-offway-blue">Accessories</a>
     <a href="/#bags" class="mobile-link block text-base font-semibold tracking-wider uppercase text-white/60 hover:text-offway-blue">Bags</a>
+    <a href="/#pants" class="mobile-link block text-base font-semibold tracking-wider uppercase text-white/60 hover:text-offway-blue">Pants</a>
   </div>
 </header>
 

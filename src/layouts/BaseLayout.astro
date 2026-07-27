@@ -1,6 +1,7 @@
 ---
 import '../styles/global.css';
 import WhatsAppWidget from '../components/WhatsAppWidget.astro';
+import CartDrawer from '../components/CartDrawer.astro';
 
 interface Props {
   title?: string;
@@ -8,8 +9,8 @@ interface Props {
 }
 
 const { 
-  title = "OFF WAY | Streetwear, Caps & Accessories", 
-  description = "OFF WAY online store - Premium local streetwear, graphic caps, and bold accessories. Replicating raw street culture." 
+  title = "OFF WAY | Streetwear & Accessories", 
+  description = "OFF WAY online store - Premium local streetwear, bags, and apparel. Replicating raw street culture." 
 } = Astro.props;
 ---
 
@@ -46,22 +47,14 @@ const {
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700&family=Syne:wght@700;800&display=swap" rel="stylesheet" />
-    
-    <!-- Snipcart CSS Preconnect & Styles -->
-    <link rel="preconnect" href="https://app.snipcart.com" />
-    <link rel="preconnect" href="https://cdn.snipcart.com" />
-    <link rel="stylesheet" href="https://cdn.snipcart.com/themes/v3.0.31/default/snipcart.css" />
   </head>
   <body class="bg-offway-black text-offway-white antialiased min-h-screen flex flex-col selection:bg-offway-blue selection:text-white">
     <slot />
     
-    <!-- Snipcart Shopping Cart HTML Setup (Using a public test API key for localhost testing) -->
-    <div id="snipcart" data-api-key="Y2QyOTYwYTgtOTUxZi00ZmQzLTllYjQtNDRlMWJjNTRhODdmNjM4NTUzOTg5MDM1MTY3NjY4" data-config-modal-style="side" hidden></div>
-    
+    <!-- Custom Cart Drawer (WhatsApp Direct Order System) -->
+    <CartDrawer />
+
     <!-- WhatsApp Support Widget -->
     <WhatsAppWidget />
-    
-    <!-- Snipcart JavaScript SDK -->
-    <script async src="https://cdn.snipcart.com/themes/v3.0.31/default/snipcart.js"></script>
   </body>
 </html>

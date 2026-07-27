@@ -29,9 +29,9 @@
       <!-- Order Tracking -->
       <div class="mb-6">
         <label class="block text-sm font-semibold text-white/80 mb-2">Manage your orders</label>
-        <input type="text" placeholder="Enter Phone Number / Email" class="w-full bg-black border border-white/10 px-4 py-3 text-sm text-white font-mono rounded-lg placeholder-white/30 focus:outline-none focus:border-offway-blue focus:ring-1 focus:ring-offway-blue transition-all mb-3" />
-        <button class="w-full bg-white text-black font-extrabold py-3 rounded-lg hover:bg-offway-blue hover:text-white transition-colors duration-200 uppercase tracking-widest text-xs">
-          Send OTP
+        <input id="wa-track-input" type="text" placeholder="Enter Phone Number / Email" class="w-full bg-black border border-white/10 px-4 py-3 text-sm text-white font-mono rounded-lg placeholder-white/30 focus:outline-none focus:border-offway-blue focus:ring-1 focus:ring-offway-blue transition-all mb-3" />
+        <button id="wa-track-btn" class="w-full bg-white text-black font-extrabold py-3 rounded-lg hover:bg-offway-blue hover:text-white transition-colors duration-200 uppercase tracking-widest text-xs cursor-pointer">
+          SEND OTP
         </button>
       </div>
 
@@ -71,6 +71,8 @@
     const toggleBtn = document.getElementById('wa-toggle');
     const closeBtn = document.getElementById('wa-close');
     const popup = document.getElementById('wa-popup');
+    const trackBtn = document.getElementById('wa-track-btn');
+    const trackInput = document.getElementById('wa-track-input') as HTMLInputElement;
 
     function togglePopup() {
       if (popup.classList.contains('hidden')) {
@@ -92,7 +94,25 @@
       }
     }
 
+    function handleOrderTracking() {
+      if (trackInput) {
+        const val = trackInput.value.trim();
+        const userInput = val || "8714415090";
+        const message = `Hi OFF-WAY! I want to check my order status for phone: ${userInput}`;
+        const waUrl = `https://wa.me/918714415090?text=${encodeURIComponent(message)}`;
+        window.open(waUrl, '_blank');
+      }
+    }
+
     if (toggleBtn) toggleBtn.addEventListener('click', togglePopup);
     if (closeBtn) closeBtn.addEventListener('click', togglePopup);
+    if (trackBtn) trackBtn.addEventListener('click', handleOrderTracking);
+    if (trackInput) {
+      trackInput.addEventListener('keydown', (e) => {
+        if (e.key === 'Enter') {
+          handleOrderTracking();
+        }
+      });
+    }
   });
 </script>
