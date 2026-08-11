@@ -10,7 +10,7 @@ const products = [
   {
     id: "ow-05",
     title: "BLUE MESSENGER",
-    price: 649,
+    price: 599,
     category: "bags",
     imageSrc: "/images/bags/blue-messenger.png",
     isNew: true,
@@ -31,10 +31,13 @@ const products = [
   },
   {
     id: "ow-07",
-    title: "MESSENGER 899",
-    price: 899,
+    title: "SKY BLUE LAPTOP MESSENGER",
+    price: 729,
     category: "bags",
     imageSrc: "/images/bags/messenger-899.png",
+    additionalImages: [
+      "/images/bags/messenger-899-2.jpeg"
+    ],
     isNew: true,
     isLimited: true,
     description: "Premium tactical messenger",
@@ -43,7 +46,7 @@ const products = [
   {
     id: "ow-08",
     title: "MESSENGER WHITE",
-    price: 649,
+    price: 599,
     category: "bags",
     imageSrc: "/images/bags/messenger-white.png",
     isNew: true,
@@ -54,7 +57,7 @@ const products = [
   {
     id: "ow-09",
     title: "MESSENGER SKY BLUE",
-    price: 649,
+    price: 599,
     category: "bags",
     imageSrc: "/images/bags/messenger-sky-blue.png",
     isNew: false,
@@ -65,9 +68,14 @@ const products = [
   {
     id: "ow-10",
     title: "IMPORTED KOREAN MESSENGER BAG",
-    price: 649,
+    price: 599,
     category: "bags",
     imageSrc: "/images/bags/imported-korean-blue-white.png",
+    additionalImages: [
+      "/images/bags/imported-korean-blue-white-2.jpeg",
+      "/images/bags/imported-korean-blue-white-3.jpeg",
+      "/images/bags/imported-korean-blue-white-4.jpeg"
+    ],
     isNew: true,
     isLimited: true,
     description: "Length - 35 cm, height - 25 cm, adjustable strap",
@@ -76,7 +84,7 @@ const products = [
   {
     id: "ow-11",
     title: "SPACE BLACK LAPTOP MESSENGER",
-    price: 799,
+    price: 729,
     category: "bags",
     imageSrc: "/images/bags/laptop-messenger-black.png",
     isNew: true,
@@ -87,9 +95,13 @@ const products = [
   {
     id: "ow-12",
     title: "IMPORTED MESSENGER BAG - SAGE GREEN",
-    price: 799,
+    price: 729,
     category: "bags",
-    imageSrc: "/images/bags/imported-messenger-sage-green.png",
+    imageSrc: "/images/bags/imported-messenger-sage-green-2.jpeg",
+    additionalImages: [
+      "/images/bags/imported-messenger-sage-green-3.jpeg",
+      "/images/bags/imported-messenger-sage-green-4.jpeg"
+    ],
     isNew: true,
     isLimited: true,
     description: "Imported quality material",
@@ -100,7 +112,7 @@ const products = [
     title: "IMPORTED MESSENGER BAG - BLACK",
     price: 649,
     category: "bags",
-    imageSrc: "/images/bags/black-imported-messenger.png",
+    imageSrc: "/images/bags/black-imported-messenger-2.jpeg",
     isNew: true,
     isLimited: true,
     description: "Length 35 cm, height 26 cm",
@@ -286,7 +298,7 @@ const products = [
       </div>
 
       <!-- Shop Grid -->
-      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6" id="products-grid">
+      <div class="grid grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6" id="products-grid">
         {products.map(product => (
           <div data-product-category={product.category} class="transition-all duration-500 ease-out transform h-full flex flex-col">
             <ProductCard 
@@ -295,6 +307,7 @@ const products = [
               price={product.price}
               category={product.category}
               imageSrc={product.imageSrc}
+              additionalImages={product.additionalImages}
               isNew={product.isNew}
               isLimited={product.isLimited}
               description={product.description}

@@ -2,6 +2,7 @@
 import '../styles/global.css';
 import WhatsAppWidget from '../components/WhatsAppWidget.astro';
 import CartDrawer from '../components/CartDrawer.astro';
+import ImageLightbox from '../components/ImageLightbox.astro';
 
 interface Props {
   title?: string;
@@ -53,6 +54,9 @@ const {
     
     <!-- Custom Cart Drawer (WhatsApp Direct Order System) -->
     <CartDrawer />
+
+    <!-- Image Lightbox Modal -->
+    <ImageLightbox />
 
     <!-- WhatsApp Support Widget -->
     <WhatsAppWidget />

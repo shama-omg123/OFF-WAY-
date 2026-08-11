@@ -48,7 +48,7 @@
       </div>
       <div class="flex justify-between text-xs text-white/60 font-mono">
         <span>Delivery</span>
-        <span class="text-offway-blue font-bold">FREE / COD AVAILABLE</span>
+        <span class="text-offway-blue font-bold">₹50 - ₹90</span>
       </div>
       <div class="border-t border-white/10 pt-2 flex justify-between text-base font-heading font-extrabold text-white">
         <span>TOTAL</span>
@@ -185,7 +185,7 @@
 
       if (countTitle) countTitle.textContent = totalItems.toString();
       if (subtotalEl) subtotalEl.textContent = `₹${grandTotal}`;
-      if (totalEl) totalEl.textContent = `₹${grandTotal}`;
+      if (totalEl) totalEl.textContent = `₹${grandTotal} + Shipping`;
 
       if (cart.length === 0) {
         if (itemsContainer) itemsContainer.classList.add('hidden');
@@ -242,9 +242,10 @@
           message += `${index + 1}. ${item.title}\n   • Size: ${item.size}\n   • Price: ₹${item.price} x ${item.quantity} = ₹${item.price * item.quantity}\n\n`;
         });
         message += `---------------------------------\n`;
-        message += `💰 TOTAL AMOUNT: ₹${grandTotal}\n`;
-        message += `🚚 Delivery: FREE / COD\n\n`;
-        message += `Please confirm my order & send payment / COD details!`;
+        message += `💰 SUBTOTAL: ₹${grandTotal}\n`;
+        message += `📦 Shipping: ₹50 - ₹90\n`;
+        message += `🚚 All india delivery available .\n\n`;
+        message += `Please confirm my order & send payment details .`;
 
         const waUrl = `https://wa.me/918714415090?text=${encodeURIComponent(message)}`;
         window.open(waUrl, '_blank');
